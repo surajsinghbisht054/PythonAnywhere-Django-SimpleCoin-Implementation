@@ -1,0 +1,6 @@
+security_keys.py
+*.pyc
+*.json
+*.sqlite3
+*/migrations/
+
