@@ -1,0 +1,33 @@
+{% extends "pages/base.html" %} 
+
+
+
+{% block body %}
+
+<table class="table table-striped w-75 mx-auto">
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th> Data </th>
+        </tr>
+
+    </thead>
+        {% for c in listdata %}
+        <tr>
+            <td>
+                {{ forloop.counter }}
+            </td>
+            <td>
+                {{ c }}
+            </td>
+
+        </tr>
+        
+        
+        {% endfor %}
+        
+
+</table>
+
+
+{% endblock %}

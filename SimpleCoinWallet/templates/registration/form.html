@@ -1,0 +1,23 @@
+{% extends "pages/base.html" %} 
+
+
+{% block body %}
+{% if msg %}
+<p class="text-info text-center p-xl-2 border font-weight-bold text-lowercase bg-light">{{ msg }}</p>
+{% endif %}
+
+<div class="jumbotron w-50 mx-auto form-signin bg-light p-5">
+
+
+        <form action="." method="post" class="text-capitalize form-group font-weight-bold">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-outline-success btn-lg" value="Submit" />
+            </form>
+
+</div>
+
+
+
+
+{% endblock %}

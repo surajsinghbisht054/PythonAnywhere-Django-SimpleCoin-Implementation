@@ -1,0 +1,152 @@
+{% load staticfiles %}
+
+
+<!doctype html>
+<html>
+
+<head>
+
+    <title>Bitforestinfo - SimpleCoin</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap-grid.min.css' %}">
+    <!--<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">--> 
+    <script src="{% static '/bootstrap/js/bootstrap.js' %}"></script>
+</head>
+
+<body>
+
+
+    <nav class="navbar fixed-top bg-dark w-100">
+        <div class="navbar navbar-nav w-100">
+            <div class="container w-100">
+
+                <div class="row w-100">
+
+                    <a class="navbar-brand text-light font-weight-normal text-primary">Bitforestinfo</a>
+
+
+
+                    <ul class="btn-group">
+
+                        <a class="btn btn-outline-primary btn-sm active" href="{% url 'walletindex' %}">Home</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'chain' %}">Chain</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'detailaddress' %}">Address</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'about' %}">Contact</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'about' %}">About</a>
+
+                    </ul>
+
+                    {% if user.is_authenticated %}
+
+                    <ul class="btn-group">
+
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'wallettransrequest' %}">Send</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'walletinfo' %}">Wallet</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'walletchange' %}">Change</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'rtxn' %}">Receive</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'stxn' %}">Sent</a>
+                    </ul>
+                    <ul class="btn-group">
+                        <span class="font-weight-normal text-capitalize text-info pr-1 mx-auto">{{ user }}</span>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'walletlogout' %}">Logout</a>
+
+                    </ul>
+
+                    {% else %}
+                    <ul class="btn-group">
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'walletlogin' %}">Login</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'walletnew' %}">Signup</a>
+                    </ul>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container" style="margin-top: 10em; margin-bottom: 10em;">
+
+
+
+        {% block body %} {% endblock body %}
+
+    </div>
+
+
+
+    <footer class="modal-footer bg-light">
+
+    </footer>
+    <!-- Footer -->
+    <footer class="text-center"  style="font-family: 'Pacifico', cursive;">
+        <div class="jumbotron-fluid p-3 bg-light">
+            <a class="btn btn-outline-secondary btn-lg" href="{% url 'walletindex' %}"> Home </a>
+            <a class="btn btn-outline-secondary btn-lg" href="{% url 'startchain' %}"> Start Chain</a>
+
+
+        </div>
+
+        <div class="footer-above p-2 pt-xl-5">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4 font-weight-normal text-capitalize">
+                        <h3>Suggestion?</h3>
+                        <p>
+                            <br />Friends, If you have any suggestions,
+                            <br /> related to this Web application.
+                            <br /> then feel free to
+                            <br /> contact me.
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://www.facebook.com/Bit-Forest-Info-405051843160891/">
+                                    <span class="btn btn-outline-primary w-100">Facebook</span>
+                                    <i class="fa fa-fw fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/bitforestinfo">
+                                    <span class="btn btn-outline-primary w-100">Twitter</span>
+                                    <i class="fa fa-fw fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.linkedin.com/in/suraj-bisht-379a44136/">
+                                    <span class="btn btn-outline-primary w-100">Linked In</span>
+                                    <i class="fa fa-fw fa-linkedin"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4 text-capitalize">
+                        <h3>About SimpoleCoin</h3>
+                        <p>SimpleCoin is a completely free to use, Blockchain based ledger Transection Record Maintaining App
+                            Implementation, created for practise purpose only. written in Python2.7 and created by
+                            <a href="http://www.bitforestinfo.com/p/about.html">SurajSinghBisht</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 p-5">
+                        Copyright &copy; Bitforestinfo
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

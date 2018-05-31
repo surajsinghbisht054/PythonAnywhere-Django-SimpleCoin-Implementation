@@ -1,0 +1,83 @@
+{% extends "pages/base.html" %} 
+
+
+
+{% block body %}
+
+<div class="container bg-primary">
+    <div class="jumbotron bg-transparent">
+        <h2 class="card-header text-center bg-light">Introduction</h2>
+        <p class="text-center text-white p-5 border"  style="font-family: 'PT Sans';">
+            This is A Simple Web Application Design To Perform Very Simple Transection Handling Between Users And Miners. Actually, 
+            The Interesting Point About this Application is, This Application is Based On Blockchain concept. In Simple Words, To Understand And Test My Blockchain And Bitcoin Technology Knowledge, I tried to write a Simple Web Application That Can Use A Json File As A Blockchain Storage Database To Record All The Transection, And Sqlite3 To Store Users Authentication Data. Note: Blockchain Json File is Public Available To Every One. I Tried To Implement Some Protection Mechanizms To Stop our Imaginery Attacker Like Double Spending Detection Mechanizm, Proof Of Concept, Signature Verification, Transection Verification And much more. 
+            
+        </p>
+    </div>
+    
+</div>
+
+<div class="container bg-success">
+        <div class="jumbotron bg-transparent">
+            <h2 class="card-header text-center bg-secondary text-white">SimpleCoin</h2>
+            <p class="text-center text-white p-5 border"  style="font-family: 'PT Sans';">
+                As I already mentioned in above text, 
+                SimpleCoin is a Simple BlockChain Based Ledger Implemented To 
+                handle Transections between Users. 
+                This Application can easily perform money transefer between two user and can
+                also protect and detect, if any malicious editing is performed in Blockchain Json File. 
+                I tried my best to make this project easy to understand and easy to use but still, i think
+                its little hard to understand for new programmers those who are not aware of cryptograpy 
+                Technology and bitcoin Technology. Actually, Main reason for the 
+                complexity of this Implementation is Bitcoin/Blockchain concept because In my personal
+                opinion, Bitcoin and blockchain is little hard for newbies to Understand and Also hard to Implement
+                in Any program.
+
+                </p>
+        </div>
+        
+    </div>
+    <div class="container bg-success">
+            <div class="jumbotron bg-transparent">
+                <h2 class="card-header text-center bg-info text-white">Features</h2>
+                
+                        <ul class="list-group p-4 border">
+                                <li class="list-group-item">                         Transactions Feature Supported</li>
+                                <li class="list-group-item">                         Transaction Address Supported</li>
+                                <li class="list-group-item">                         Double Spend Detection Supported</li>
+                                <li class="list-group-item">                         Strict Transaction Validations Supported</li>
+                                <li class="list-group-item">                         Simple wallet Supported</li>
+                                <li class="list-group-item">                         Miner Automatic Reward Receiving Supported</li>
+                                <li class="list-group-item">                         Transactions Merkle Data hashing Algorithm Supported</li>
+                                <li class="list-group-item">                         Block Hashing Verification Supported</li>
+                                <li class="list-group-item">                         Previous block hash verification supported</li>
+                                <li class="list-group-item">                         Transaction Signature Verification</li>
+                                <li class="list-group-item">                         Proof Of Work Supported (hashcash)</li>
+                                <li class="list-group-item">                         Proof Of Work Verification Supported</li>
+                                <li class="list-group-item">                         Invalid Transaction Detection Functions</li>
+                                <li class="list-group-item">                         Balance Finding Supported</li>
+                                <li class="list-group-item">                         All Transaction Extraction Supported</li>
+                                <li class="list-group-item">                         Automatic Key Handling Supported</li>
+                                <li class="list-group-item">                         Input Transaction Verification Available</li>
+                                <li class="list-group-item">                         Easy Signature Verification Handling</li>
+                                <li class="list-group-item">                         Database created In Json To Make It More Simple To Understand</li>
+                                <li class="list-group-item">                         Python Object Orient Programming Basic Support</li>
+                                  
+                            </ul>
+                  
+            </div>
+            
+        </div>
+    <div class="container bg-secondary">
+            <div class="jumbotron bg-transparent">
+                <h2 class="card-header text-center bg-danger">Note</h2>
+                <p class="text-center text-white p-5 border"  style="font-family: 'PT Sans';">
+                    I Just Want to Highlight Some Important Key Points That Your need To Remember.
+                    I Created This App, Just for Fun And Practise. Honestly, At this Time, This Practise Implementation is full of bugs 
+                    and problems and I'm little busy person with my student life. So, I would Like
+                    to Encourage you to perform some upgrades, so that other user can use it in more error free envirnoment.
+                </p>
+            </div>
+            
+        </div>
+        
+{% endblock %}
