@@ -109,7 +109,7 @@
             Copy All Syntax And Paste it in any HTML Supported Platform, Blog, Email, Wordpress, Website And much more.
 
         </p>
-            <form action="/" method="post" class="form-group border bg-light">
+            <form action="{% url 'dcodeindex' %}" method="post" class="form-group border bg-light">
                 {% csrf_token %}
                 <div id="container">
                     <div id="main">

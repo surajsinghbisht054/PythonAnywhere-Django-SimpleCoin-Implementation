@@ -22,7 +22,7 @@ from dcode import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'simplecoin/', include('SimpleCoinWallet.urls')),
+    url(r'simplecoin/', include('SimpleCoinWallet.urls'), name='simplecoinindex'),
     url(r'dcode/', views.dcode, name='dcodeindex'),
     # Currently This BLog Contain Only One App, So That's Why Using Redirect
     url(r'.*', views.mainindex, name='mainindex')

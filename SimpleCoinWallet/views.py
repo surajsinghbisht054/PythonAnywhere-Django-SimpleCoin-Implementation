@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def receving_transection(request):
     if not request.user.is_authenticated():
-        return HttpResponseRedirect('/')    
+        return HttpResponseRedirect('/simplecoin/')    
     f =[i.transections for i in rtxn.objects.filter(acc=request.user)]
     context = {
         'listdata':f,
@@ -19,7 +19,7 @@ def receving_transection(request):
 
 def sent_transections(request):
     if not request.user.is_authenticated():
-        return HttpResponseRedirect('/')   
+        return HttpResponseRedirect('/simplecoin/')   
     f =[i.transections for i in stxn.objects.filter(acc=request.user)] 
     context = {
         'listdata':f,
@@ -30,7 +30,7 @@ def sent_transections(request):
 
 def walletinfo(request):
     if not request.user.is_authenticated():
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/simplecoin/')
     i = UserInfo.objects.filter(acc = request.user)
 
     if not i:
@@ -83,7 +83,7 @@ def index(request):
 
 def createtransection(request):
     if not request.user.is_authenticated():
-        return HttpResponseRedirect('/')    
+        return HttpResponseRedirect('/simplecoin/')    
     msg = 'It May Take Few Minutes To Conform This Transection Because Of Inbuilt Proof Of Work mechanizm.'
     form = MoneySent
     if request.method=='POST':
@@ -142,7 +142,7 @@ def signup(request):
                     obj.save()
                     new_user(obj, username)
                     msg = 'Signup Complete.!'
-                    return HttpResponseRedirect('/')
+                    return HttpResponseRedirect('/simplecoin/')
             else:
                 msg = ' Password And Conform Password Not Matching'
                 
@@ -162,7 +162,7 @@ def loginpage(request):
     form = loginform
     # check request
     if request.user.is_authenticated():
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/simplecoin/')
     
     if request.method=='POST':
         form = loginform(request.POST)   
@@ -174,7 +174,7 @@ def loginpage(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/')
+                    return HttpResponseRedirect('/simplecoin/')
                 else:
                     msg = "Account Disabled"
             else:
@@ -192,11 +192,11 @@ def loginpage(request):
 
 def logoutpage(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/simplecoin/')
 
 def change_pass(request):
     if not request.user.is_authenticated():
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/simplecoin/')
     context = {
         'form':change_password()
         }
