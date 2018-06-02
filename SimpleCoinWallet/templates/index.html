@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Main Index Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap-grid.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="row w-100 h-100 bg-primary p-2">
+   
+    <div class="col bg-success p-2 w-100">
+
+        <a href="{% url 'dcodeindex' %}" class="text-light"><span class="btn btn-primary w-100 h-100 font-weight-bold"><object>Dcode</object>
+        
+            <p class="text-center" style="margin-top: 40%">Dcode, <br >A Syntax Highlighting App Supports All Programming Language</p>
+        </span></a>
+    
+    </div>
+    <div class="col bg-success p-2 w-100">
+
+            <a href="{% url 'walletindex' %}" class="text-light"><span class="btn btn-primary w-100 h-100 font-weight-bold"><object>SimpleCoin</object>
+                <p class="text-center text-center" style="margin-top: 40%"> Simple Crypto Currency Exchanging Web App,<br > Design To Demonstrate Blockchain Based Ledgers Implementations</p>
+            </span></a>
+        </div>
+    
+</div>
+ </body>
+
+</html>

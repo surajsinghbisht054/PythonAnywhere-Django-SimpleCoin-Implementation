@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.shortcuts import redirect
 from django.views.generic import RedirectView
+from dcode import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'simplecoin/', include('SimpleCoinWallet.urls')),
+    url(r'dcode/', views.dcode, name='dcodeindex'),
     # Currently This BLog Contain Only One App, So That's Why Using Redirect
-    url(r'^$', RedirectView.as_view(url='simplecoin/'), name='homeredirect')
+    url(r'.*', views.mainindex, name='mainindex')
 ]

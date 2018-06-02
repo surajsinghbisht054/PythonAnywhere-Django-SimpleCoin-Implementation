@@ -1,0 +1,171 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Dcode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap-grid.min.css' %}">
+
+    <style type="text/css">
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #fff;
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+        }
+
+        input {
+            margin: .5em 0;
+        }
+
+        #container {
+            width: 90%;
+            margin: 1em auto;
+        }
+
+        #container>div {
+            margin: auto 1em;
+        }
+
+        #code {
+            float: left;
+            width: 50%;
+        }
+
+        #html {
+            float: right;
+            width: 50%;
+        }
+
+        #code2 {
+            margin-right: 1em;
+        }
+
+        #html2 {
+            margin-left: 1em;
+        }
+
+        #main textarea {
+            width: 100%;
+            height: 10em;
+        }
+
+        #html2 textarea {
+            float: right;
+        }
+
+        #options {
+            clear: both;
+        }
+
+        #divstyles {
+            width: 50%;
+        }
+
+        #preview {
+            padding-bottom: 3em;
+        }
+
+        #footer p {
+            text-align: center;
+            font-size: 75%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar fixed-top bg-dark w-100">
+        <div class="navbar navbar-nav w-100">
+            <div class="container w-100">
+
+                <div class="row w-100">
+
+                    <a class="navbar-brand text-light font-weight-normal text-primary ">Dcode</a>
+
+
+
+                    <ul class="btn-group ml-auto">
+
+                        <a class="btn btn-outline-primary btn-sm active" href="{% url 'dcodeindex' %}">Dcode</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'about' %}">About</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'mainindex' %}">MainPage</a>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" style="margin-top: 5em;">
+        <p class="text-center border text-primary w-75 mx-auto">
+            Want to Convert Your Programming Source Codes Into HTML Supported Format With Syntax Highlighting Features.
+            Just Copy and Paste Your Source Codes In Input Box, Select Required Options And Press Highlight. Then, Click Into Output Box,
+            Copy All Syntax And Paste it in any HTML Supported Platform, Blog, Email, Wordpress, Website And much more.
+
+        </p>
+            <form action="/" method="post" class="form-group border bg-light">
+                {% csrf_token %}
+                <div id="container">
+                    <div id="main">
+                        <div id="code">
+                            <div id="code2">
+                                <strong>Source code:</strong>
+                                <br/>
+                                <textarea name="code" rows="10" cols="40">{{ code }}</textarea>
+                            </div>
+                        </div>
+                        <div id="html">
+                            <div id="html2">
+                                <strong>HTML:</strong>
+                                <br/>
+                                <textarea id="html" name="html" rows="10" cols="40" readonly="readonly" onClick="javascript:this.form.html.focus();this.form.html.select();">{{ html }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="options" class="mx-auto p-3 bg-light">
+                        <p>
+                            Language:
+                            <select name="lexer">
+                                {% for item in lexers %}
+                                <option {% if item == lexer %}selected="selected" {% endif %}value="{{ item }}">{{ item }}</option>
+                                {% endfor %}
+        
+                            </select>
+                            Style:
+                            <select name="style">
+                                {% for item in styles %}
+                                <option {% if item == style %}selected="selected" {% endif %}value="{{ item }}">{{ item }}</option>
+                                {% endfor %}
+                            </select>
+        
+                            <input type="submit" value="Highlight!" />
+                        </p>
+                    </div>
+                    <div id="preview" class="border w-75 bg-light mx-auto p-2">
+                        <p>
+                            <strong>Preview:</strong>
+                        </p>
+                        {% autoescape off %} {{ html }} {% endautoescape %}
+                    </div>
+                    <div id="footer" class="list-group w-100">
+                        <p class="bg-light p-5 mx-auto text-capitalize text-secondary">
+                             Made by
+                            <a href="http://www.bitforestinfo.com" >Suraj Singh</a> | Powered by
+                            <a href="https://www.djangoproject.com/">Django</a> and
+                            <a href="http://pygments.org/">Pygments</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        
+        
+    </div>
+ </body>
+
+</html>
